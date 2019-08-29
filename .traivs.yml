@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jaejang/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run -e CI=true jaejang/docker-react npm run test
